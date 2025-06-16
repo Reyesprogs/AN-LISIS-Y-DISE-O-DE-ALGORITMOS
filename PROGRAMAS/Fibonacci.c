@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <math.h>
 
+int i;
 
 bool esPrimo(int n);
 void resolverSumaFibonacci(int k);
@@ -31,7 +32,7 @@ bool esPrimo(int n) {
     if (n <= 3) return true;  
     if (n % 2 == 0 || n % 3 == 0) return false; 
 
-    for (int i = 5; i * i <= n; i = i + 6) {
+    for (i=5; i*i<=n; i=i+6) {
         if (n % i == 0 || n % (i + 2) == 0) {
             return false;
         }
@@ -66,7 +67,7 @@ void resolverSumaFibonacci(int k_original) {
     long int solucion_terminos[100]; 
     int count_solucion = 0;
 
-    for (int i = count_filtrado - 1; i >= 0; i--) {
+    for (i = count_filtrado - 1; i >= 0; i--) {
         if (fib_filtrado[i] <= k_restante && fib_filtrado[i] > 0) {
             k_restante -= fib_filtrado[i];
             solucion_terminos[count_solucion] = fib_filtrado[i];
@@ -87,7 +88,7 @@ void resolverSumaFibonacci(int k_original) {
     printf("Solucion Optima:\n");
     if (count_solucion > 0) {
         printf("   ");
-        for (int i = 0; i < count_solucion; i++) {
+        for (i = 0; i < count_solucion; i++) {
             printf("%ld", solucion_terminos[i]);
             if (i < count_solucion - 1) {
                 printf(" + ");
